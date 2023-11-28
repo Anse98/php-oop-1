@@ -7,32 +7,28 @@ class Production
     public $language;
     public $rating;
 
-    public function getFilm()
+    public function getFilmInformations()
     {
         echo 'Il titolo del film è ' . $this->title . ' con lingua ' . $this->language . ' e con voto di ' . $this->rating . ' su 5' . '<br>';
+    }
+
+    function __construct($title, $language, $rating)
+    {
+        $this->title = $title;
+
+        $this->language = $language;
+
+        $this->rating = $rating;
     }
 }
 
 //primo film
-$film_1 = new Production();
-
-$film_1->title = 'Una notte da leoni';
-
-$film_1->language = 'Us';
-
-$film_1->rating = 4;
-
+$film_1 = new Production('Una notte da Leoni', 'US', 4);
 
 //secondo film
-$film_2 = new Production();
-
-$film_2->title = 'Estate';
-
-$film_2->language = 'It';
-
-$film_2->rating = 3;
+$film_2 = new Production('Estate', 'IT', 3);
 
 
-$film_1->getFilm();
+$film_1->getFilmInformations();
 
-$film_2->getFilm();
+$film_2->getFilmInformations();
