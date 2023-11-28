@@ -7,6 +7,41 @@ class Production
     public $language;
     public $rating;
 
+    function __construct($_title, $_language, $_rating)
+    {
+        $this->setTitle($_title);
+
+        $this->setLanguage($_language);
+
+        $this->setRating($_rating);
+    }
+
+
+    public function setTitle($title)
+    {
+        if (is_string($title)) {
+            $this->title = $title;
+        } else {
+            $this->title = 'Nome del film non trovato';
+        }
+    }
+
+    public function setLanguage($language)
+    {
+        if (is_string($language)) {
+            $this->language = $language;
+        } else {
+            $this->language = 'Lingua del film non trovata';
+        }
+    }
+
+    public function setRating($rating)
+    {
+        if (is_numeric($rating) && $rating > 0) {
+            $this->rating = intval($rating);
+        }
+    }
+
     public function getTitle()
     {
         echo $this->title;
@@ -20,17 +55,6 @@ class Production
     public function getRating()
     {
         echo $this->rating;
-    }
-
-
-
-    function __construct($_title, $_language, $_rating)
-    {
-        $this->title = $_title;
-
-        $this->language = $_language;
-
-        $this->rating = $_rating;
     }
 }
 
@@ -68,15 +92,13 @@ $films = [$film_1, $film_2, $film_3];
         <section class="movies">
 
             <div class="movies-container">
-                <?php foreach ($films as $film) {
-                ?>
+                <?php foreach ($films as $film) { ?>
                     <ul class="movie">
                         <h2><?php $film->getTitle() ?></h2>
-                        <li>Lingua : <?php $film->getLanguage() ?></p>
-                        <li>Voto : <?php $film->getRating() ?> su 5</p>
+                        <li>Lingua : <?php $film->getLanguage() ?></li>
+                        <li>Voto : <?php $film->getRating() ?> su 5</li>
                     </ul>
-                <?php }
-                ?>
+                <?php } ?>
             </div>
 
         </section>
