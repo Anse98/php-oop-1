@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+ul,
+ol,
+menu {
+    list-style: none;
+}
+
+header {
+    background-color: blueviolet;
+}
+
+.title {
+    text-align: center;
+    padding: 20px 0;
+    color: yellow;
+}
+
+.movies {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.movies-container {
+    padding-top: 50px;
+    padding: 0 30px;
+    border: solid 1px lightgray;
+    width: 800px;
+}
+
+.movie {
+    padding-bottom: 20px;
+}
+
+.movie h2 {
+    padding: 20px 0;
+}
+
+.movie li {
+    border-bottom: solid 1px lightgray;
+    padding: 10px 0;
+}
