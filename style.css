@@ -34,7 +34,7 @@ header {
     width: 800px;
 }
 
-.movie {
+.movie-series {
     padding-bottom: 20px;
 }
 
@@ -42,7 +42,7 @@ header {
     padding: 20px 0;
 }
 
-.movie li {
+.movie-series li {
     border-bottom: solid 1px lightgray;
     padding: 10px 0;
 }

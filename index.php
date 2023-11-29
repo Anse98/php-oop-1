@@ -1,74 +1,24 @@
 <?php
 
-class Production
-{
+require_once __DIR__ . '/Models/Movie.php';
+require_once __DIR__ . '/Models/Serie.php';
 
-    public $title;
-    public $language;
-    public $rating;
+// movies
+$movie_1 = new Movie('Una notte da leoni', 'EN', 4, 10000000, '110 min');
+$movie_2 = new Movie('Die Hard', 'EN', 3, 150000, '180 min');
+$movie_3 = new Movie('Il grande Gatsby', 'EN', 5, 30000000, '220 min');
+$movie_4 = new Movie('Avatar', 'EN', 4, 90000000, '240 min');
+$movie_5 = new Movie('Saw', 'EN', 3, 40000000, '120 min');
 
-    function __construct($_title, $_language, $_rating)
-    {
-        $this->setTitle($_title);
+// series
+$serie_1 = new Serie('La casa di carta', 'ES', 4, 5);
+$serie_2 = new Serie('Breaking Bad', 'EN', 5, 6);
+$serie_3 = new Serie('Elite', 'ES', 3, 4);
+$serie_4 = new Serie('Spongebob', 'EN', 5, 18);
+$serie_5 = new Serie('The Big Bang Theory', 'EN', 4, 10);
 
-        $this->setLanguage($_language);
-
-        $this->setRating($_rating);
-    }
-
-
-    public function setTitle($title)
-    {
-        if (is_string($title)) {
-            $this->title = $title;
-        } else {
-            $this->title = 'Nome del film non trovato';
-        }
-    }
-
-    public function setLanguage($language)
-    {
-        if (is_string($language)) {
-            $this->language = $language;
-        } else {
-            $this->language = 'Lingua del film non trovata';
-        }
-    }
-
-    public function setRating($rating)
-    {
-        if (is_numeric($rating) && $rating > 0) {
-            $this->rating = intval($rating);
-        }
-    }
-
-    public function getTitle()
-    {
-        echo $this->title;
-    }
-
-    public function getLanguage()
-    {
-        echo $this->language;
-    }
-
-    public function getRating()
-    {
-        echo $this->rating;
-    }
-}
-
-//primo film
-$film_1 = new Production('Una notte da Leoni', 'US', 4);
-
-//secondo film
-$film_2 = new Production('Estate', 'IT', 3);
-
-//terzo film
-$film_3 = new Production('Voglia di napoli', 'IT', 1);
-
-//array di film
-$films = [$film_1, $film_2, $film_3];
+// array di movies e series
+$movies_and_series = [$movie_1, $movie_2, $movie_3, $movie_4, $movie_5, $serie_1, $serie_2, $serie_3, $serie_4, $serie_5];
 
 ?>
 
@@ -85,18 +35,18 @@ $films = [$film_1, $film_2, $film_3];
 <body>
     <header>
         <div class="title">
-            <h1>Film</h1>
+            <h1>Film & Serie</h1>
         </div>
     </header>
     <main>
         <section class="movies">
 
             <div class="movies-container">
-                <?php foreach ($films as $film) { ?>
-                    <ul class="movie">
-                        <h2><?php $film->getTitle() ?></h2>
-                        <li>Lingua : <?php $film->getLanguage() ?></li>
-                        <li>Voto : <?php $film->getRating() ?> su 5</li>
+                <?php foreach ($movies_and_series as $item) { ?>
+                    <ul class="movie-series">
+                        <h2><?php $item->getTitle() ?></h2>
+                        <li>Lingua : <?php $item->getLanguage() ?></li>
+                        <li>Voto : <?php $item->getRating() ?> su 5</li>
                     </ul>
                 <?php } ?>
             </div>
